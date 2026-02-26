@@ -431,7 +431,7 @@ export default function App() {
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.83v58.34h-58.34l-.83-.83V0h58.34zM27.5 38.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm13-11a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm-26 0a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm13-11a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9z\' fill=\'%232D3748\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E")' }}></div>
           
           <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
-            <div className="bg-white rounded-[40px] p-8 sm:p-12 shadow-2xl border border-charcoal/5">
+            <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 md:p-12 shadow-2xl border border-charcoal/5">
               <div className="text-center mb-10">
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-4">Check Availability</h2>
                 <p className="text-charcoal/70">Tell us a bit about what you need, and we'll get back to you within 24 hours.</p>
@@ -442,24 +442,24 @@ export default function App() {
                   <div className="space-y-2">
                     <label className="block text-sm font-semibold text-charcoal">Check-in Date</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-charcoal/50">
+                      <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none text-charcoal/50">
                         <Calendar size={20} />
                       </div>
                       <input 
                         type="date" 
-                        className="w-full pl-12 pr-4 py-4 bg-cream/50 border border-charcoal/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-semibold text-charcoal">Check-out Date</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-charcoal/50">
+                      <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none text-charcoal/50">
                         <Calendar size={20} />
                       </div>
                       <input 
                         type="date" 
-                        className="w-full pl-12 pr-4 py-4 bg-cream/50 border border-charcoal/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       />
                     </div>
                   </div>
@@ -467,7 +467,7 @@ export default function App() {
 
                 <div className="space-y-2">
                   <label className="block text-sm font-semibold text-charcoal">Pet Type</label>
-                  <select className="w-full px-4 py-4 bg-cream/50 border border-charcoal/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none">
+                  <select className="w-full px-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%232D3748%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.293%207.293a1%201%200%20011.414%200L10%2010.586l3.293-3.293a1%201%200%20111.414%201.414l-4%204a1%201%200%2001-1.414%200l-4-4a1%201%200%20010-1.414z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1rem_center] bg-no-repeat pr-10">
                     <option value="">Select your pet(s)...</option>
                     <option value="dog">Dog(s) Only</option>
                     <option value="cat">Cat(s) Only</option>
@@ -481,13 +481,13 @@ export default function App() {
                   <input 
                     type="text" 
                     placeholder="Jane Doe"
-                    className="w-full px-4 py-4 bg-cream/50 border border-charcoal/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                   />
                 </div>
 
                 <button 
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-2xl font-bold text-lg transition-colors shadow-md hover:shadow-lg mt-4"
+                  className="w-full bg-primary hover:bg-primary-dark text-white py-3 sm:py-4 rounded-2xl font-bold text-lg transition-colors shadow-md hover:shadow-lg mt-4"
                 >
                   Request Booking
                 </button>
