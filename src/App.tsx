@@ -220,7 +220,7 @@ export default function App() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Service 1 - Dogs */}
-              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group flex flex-col">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:scale-110 transition-transform">
                   <Dog size={32} />
                 </div>
@@ -283,7 +283,7 @@ export default function App() {
               </div>
 
               {/* Service 3 - Birds & Exotics */}
-              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group flex flex-col">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:scale-110 transition-transform">
                   <Bird size={32} />
                 </div>
@@ -301,7 +301,7 @@ export default function App() {
                     <span className="text-primary font-bold text-xl">$50</span>
                   </div>
                 </div>
-                <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors">
+                <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
                   Book Birds <ChevronRight size={20} />
                 </a>
               </div>
