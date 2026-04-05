@@ -19,7 +19,8 @@ import {
   Instagram, 
   Facebook, 
   Twitter,
-  Award
+  Award,
+  Bird
 } from 'lucide-react';
 import Beebo from "./beebo.png";
 import { motion } from 'motion/react';
@@ -210,53 +211,98 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Services</h2>
-              <p className="text-charcoal/70 text-lg">Tailored care plans to keep your pets happy, healthy, and safe in their own environment.</p>
+              <p className="text-charcoal/70 text-lg mb-4">Tailored care plans to keep your pets happy, healthy, and safe in their own environment.</p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm font-bold text-primary">
+                <span className="bg-primary/10 px-3 py-1 rounded-full">+$5 per additional pet</span>
+                <span className="bg-primary/10 px-3 py-1 rounded-full">+$4 medication fee</span>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {/* Service 1 */}
-              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+              {/* Service 1 - Dogs */}
+              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group flex flex-col">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:scale-110 transition-transform">
                   <Dog size={32} />
                 </div>
-                <h3 className="text-2xl font-serif font-bold mb-2">Dog Walking</h3>
-                <p className="text-primary font-semibold mb-4">From $25 / walk</p>
-                <p className="text-charcoal/70 mb-8 leading-relaxed">
-                  Active, engaging walks tailored to your dog's energy level. Includes fresh water, treats, and a detailed report card.
+                <h3 className="text-3xl font-serif font-bold mb-2">Dogs</h3>
+                <p className="text-charcoal/70 mb-6 text-sm italic">
+                  including feeding/water • going outside or walk/play • medications (if needed)
                 </p>
-                <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors">
-                  Learn More <ChevronRight size={20} />
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
+                    <span className="font-medium">30 min check-in</span>
+                    <div className="text-right">
+                      <p className="text-primary font-bold">$20 <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span></p>
+                      <p className="text-primary font-bold">$30 <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span></p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
+                    <span className="font-medium">60 min check-in</span>
+                    <div className="text-right">
+                      <p className="text-primary font-bold">$40 <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span></p>
+                      <p className="text-primary font-bold">$50 <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span></p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">Overnight stay</span>
+                    <span className="text-primary font-bold text-xl">$70</span>
+                  </div>
+                </div>
+                <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
+                  Book Dogs <ChevronRight size={20} />
                 </a>
               </div>
 
-              {/* Service 2 */}
-              <div className="bg-primary text-white rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl shadow-lg relative overflow-hidden group">
+              {/* Service 2 - Cats */}
+              <div className="bg-primary text-white rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl shadow-lg relative overflow-hidden group flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl"></div>
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-white backdrop-blur-sm mb-6 group-hover:scale-110 transition-transform">
-                  <Moon size={32} />
+                  <Cat size={32} />
                 </div>
-                <h3 className="text-2xl font-serif font-bold mb-2">Overnight Stays</h3>
-                <p className="text-white/90 font-semibold mb-4">From $85 / night</p>
-                <p className="text-white/80 mb-8 leading-relaxed">
-                  Premium in-home care so your pets can sleep in their own beds. Includes evening/morning routines, feeding, and lots of cuddles.
+                <h3 className="text-3xl font-serif font-bold mb-2">Cats</h3>
+                <p className="text-white/80 mb-6 text-sm italic">
+                  including feeding/water • medications (if needed)
                 </p>
-                <a href="#book" className="inline-flex items-center gap-2 text-white font-bold hover:text-white/80 transition-colors">
-                  Learn More <ChevronRight size={20} />
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                    <span className="font-medium text-white/90">15 min check-in</span>
+                    <span className="text-white font-bold">$15 <span className="text-[10px] text-white/60 uppercase font-sans ml-1">1-2x a day</span></span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                    <span className="font-medium text-white/90">15-30 min check-in</span>
+                    <span className="text-white font-bold">$30 <span className="text-[10px] text-white/60 uppercase font-sans ml-1">multiple visits</span></span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-white/90">Overnight stay</span>
+                    <span className="text-white font-bold text-xl">$50</span>
+                  </div>
+                </div>
+                <a href="#book" className="inline-flex items-center gap-2 text-white font-bold hover:text-white/80 transition-colors mt-auto">
+                  Book Cats <ChevronRight size={20} />
                 </a>
               </div>
 
-              {/* Service 3 */}
-              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+              {/* Service 3 - Birds & Exotics */}
+              <div className="bg-cream rounded-[32px] p-8 sm:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group flex flex-col">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:scale-110 transition-transform">
-                  <Cat size={32} />
+                  <Bird size={32} />
                 </div>
-                <h3 className="text-2xl font-serif font-bold mb-2">Cat Sitting</h3>
-                <p className="text-primary font-semibold mb-4">From $22 / visit</p>
-                <p className="text-charcoal/70 mb-8 leading-relaxed">
-                  Drop-in visits for your feline friends. Includes feeding, litter box cleaning, playtime, and chin scratches.
+                <h3 className="text-3xl font-serif font-bold mb-2 text-balance">Birds & Exotics</h3>
+                <p className="text-charcoal/70 mb-6 text-sm italic">
+                  including feeding/water • cage cleaning • medication • or other needs
                 </p>
-                <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors">
-                  Learn More <ChevronRight size={20} />
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
+                    <span className="font-medium">15-30 min check-in</span>
+                    <span className="text-primary font-bold">$25 <span className="text-[10px] text-charcoal/50 uppercase font-sans ml-1">1-2x a day</span></span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">Overnight stay</span>
+                    <span className="text-primary font-bold text-xl">$50</span>
+                  </div>
+                </div>
+                <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
+                  Book Birds <ChevronRight size={20} />
                 </a>
               </div>
             </div>
