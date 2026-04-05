@@ -229,18 +229,22 @@ export default function App() {
                   including feeding/water • going outside or walk/play • medications (if needed)
                 </p>
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
-                    <span className="font-medium">30 min check-in</span>
-                    <div className="text-right">
-                      <p className="text-primary font-bold">$20 <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span></p>
-                      <p className="text-primary font-bold">$30 <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span></p>
+                  <div className="flex justify-between items-start border-b border-charcoal/5 pb-2">
+                    <span className="font-medium pt-0.5">30 min check-in</span>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
+                      <span className="text-primary font-bold text-right">$20</span>
+                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span>
+                      <span className="text-primary font-bold text-right">$30</span>
+                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span>
                     </div>
                   </div>
-                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
-                    <span className="font-medium">60 min check-in</span>
-                    <div className="text-right">
-                      <p className="text-primary font-bold">$40 <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span></p>
-                      <p className="text-primary font-bold">$50 <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span></p>
+                  <div className="flex justify-between items-start border-b border-charcoal/5 pb-2">
+                    <span className="font-medium pt-0.5">60 min check-in</span>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
+                      <span className="text-primary font-bold text-right">$40</span>
+                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span>
+                      <span className="text-primary font-bold text-right">$50</span>
+                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
@@ -264,13 +268,19 @@ export default function App() {
                   including feeding/water • medications (if needed)
                 </p>
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                    <span className="font-medium text-white/90">15 min check-in</span>
-                    <span className="text-white font-bold">$15 <span className="text-[10px] text-white/60 uppercase font-sans ml-1">1-2x a day</span></span>
+                  <div className="flex justify-between items-start border-b border-white/10 pb-2">
+                    <span className="font-medium text-white/90 pt-0.5">15 min check-in</span>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
+                      <span className="text-white font-bold text-right">$15</span>
+                      <span className="text-[10px] text-white/60 uppercase font-sans">1-2x a day</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                    <span className="font-medium text-white/90">15-30 min check-in</span>
-                    <span className="text-white font-bold">$30 <span className="text-[10px] text-white/60 uppercase font-sans ml-1">multiple visits</span></span>
+                  <div className="flex justify-between items-start border-b border-white/10 pb-2">
+                    <span className="font-medium text-white/90 pt-0.5">15-30 min check-in</span>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
+                      <span className="text-white font-bold text-right">$30</span>
+                      <span className="text-[10px] text-white/60 uppercase font-sans">multiple visits</span>
+                    </div>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-white/90">Overnight stay</span>
@@ -292,9 +302,12 @@ export default function App() {
                   including feeding/water • cage cleaning • medication • or other needs
                 </p>
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
-                    <span className="font-medium">15-30 min check-in</span>
-                    <span className="text-primary font-bold">$25 <span className="text-[10px] text-charcoal/50 uppercase font-sans ml-1">1-2x a day</span></span>
+                  <div className="flex justify-between items-start border-b border-charcoal/5 pb-2">
+                    <span className="font-medium pt-0.5">15-30 min check-in</span>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
+                      <span className="text-primary font-bold text-right">$25</span>
+                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">1-2x a day</span>
+                    </div>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Overnight stay</span>
