@@ -4,6 +4,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import Payment from './Payment';
 import { 
   PawPrint, 
   Dog, 
@@ -27,6 +29,7 @@ import { motion } from 'motion/react';
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +38,55 @@ export default function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  return (
+    <Routes>
+      <Route path="/payment" element={<Payment />} />
+      <Route path="/" element={<Home isScrolled={isScrolled} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />} />
+    </Routes>
+  );
+}
+
+function Home({ isScrolled, mobileMenuOpen, setMobileMenuOpen }: { isScrolled: boolean, mobileMenuOpen: boolean, setMobileMenuOpen: (open: boolean) => void }) {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    petType: '',
+    checkIn: '',
+    checkOut: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleBookingSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('/api/send-booking-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        navigate('/payment');
+      } else {
+        const errorData = await response.json();
+        setSubmitError(errorData.error || 'Failed to send booking request. Please try again.');
+        // Still navigate for demo purposes if it's just a placeholder error
+        if (!errorData.error) navigate('/payment');
+      }
+    } catch (error: any) {
+      setSubmitError('Connection error. Please check your internet and try again.');
+      console.error('Error submitting booking:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-charcoal bg-cream overflow-x-hidden">
@@ -62,12 +114,12 @@ export default function App() {
           </nav>
 
           <div className="hidden md:block">
-            <a 
-              href="#book" 
+            <Link
+              to="/payment"
               className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-colors shadow-sm"
             >
               Book a Sitter
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -85,13 +137,13 @@ export default function App() {
             <a href="#services" className="text-charcoal/80 font-medium p-2" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#testimonials" className="text-charcoal/80 font-medium p-2" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
             <a href="#about" className="text-charcoal/80 font-medium p-2" onClick={() => setMobileMenuOpen(false)}>About</a>
-            <a 
-              href="#book" 
+            <Link
+              to="/payment"
               className="bg-primary text-white px-6 py-3 rounded-full font-medium text-center mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Book a Sitter
-            </a>
+            </Link>
           </div>
         )}
       </header>
@@ -141,12 +193,12 @@ export default function App() {
                 Professional, loving pet sitting and dog walking services tailored to your furry family members across the Space Coast and Brevard County.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="#book" 
+                <Link
+                  to="/payment"
                   className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-lg text-center transition-colors shadow-md hover:shadow-lg"
                 >
                   Book a Sitter
-                </a>
+                </Link>
                 <a 
                   href="#services" 
                   className="bg-transparent border-2 border-charcoal/20 hover:border-charcoal text-charcoal px-8 py-4 rounded-full font-semibold text-lg text-center transition-colors"
@@ -405,10 +457,6 @@ export default function App() {
                   a: "We currently serve Melbourne, Viera, Cocoa Beach, Rockledge, and Merritt Island. If you're slightly outside these areas, feel free to reach out!"
                 },
                 {
-                  q: "Are you insured and bonded?",
-                  a: "Yes! We are fully insured and bonded through Business Insurers of the Carolinas, specifically tailored for pet care professionals."
-                },
-                {
                   q: "Do you provide updates during the service?",
                   a: "Absolutely. After every walk or visit, you'll receive a 'report card' via our app with photos, a GPS map of the walk, and details about potty breaks and behavior."
                 },
@@ -437,28 +485,35 @@ export default function App() {
                 <p className="text-charcoal/70">Tell us a bit about what you need, and we'll get back to you within 24 hours.</p>
               </div>
 
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleBookingSubmit}>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="block text-sm font-semibold text-charcoal">Check-in Date</label>
+                    <label htmlFor="checkIn" className="block text-sm font-semibold text-charcoal">Check-in Date</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none text-charcoal/50">
                         <Calendar size={20} />
                       </div>
                       <input 
                         type="date" 
+                        required
+                        value={formData.checkIn}
+                        onChange={(e) => setFormData({ ...formData, checkIn: e.target.value })}
                         className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="block text-sm font-semibold text-charcoal">Check-out Date</label>
+                    <label htmlFor="checkOut" className="block text-sm font-semibold text-charcoal">Check-out Date</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none text-charcoal/50">
                         <Calendar size={20} />
                       </div>
                       <input 
                         type="date" 
+                        required
+                        id="checkOut"
+                        value={formData.checkOut}
+                        onChange={(e) => setFormData({ ...formData, checkOut: e.target.value })}
                         className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       />
                     </div>
@@ -466,8 +521,14 @@ export default function App() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-charcoal">Pet Type</label>
-                  <select className="w-full px-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%232D3748%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.293%207.293a1%201%200%20011.414%200L10%2010.586l3.293-3.293a1%201%200%20111.414%201.414l-4%204a1%201%200%2001-1.414%200l-4-4a1%201%200%20010-1.414z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1rem_center] bg-no-repeat pr-10">
+                  <label htmlFor="petType" className="block text-sm font-semibold text-charcoal">Pet Type</label>
+                  <select
+                    required
+                    id="petType"
+                    value={formData.petType}
+                    onChange={(e) => setFormData({ ...formData, petType: e.target.value })}
+                    className="w-full px-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%232D3748%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.293%207.293a1%201%200%20011.414%200L10%2010.586l3.293-3.293a1%201%200%20111.414%201.414l-4%204a1%201%200%2001-1.414%200l-4-4a1%201%200%20010-1.414z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1rem_center] bg-no-repeat pr-10"
+                  >
                     <option value="">Select your pet(s)...</option>
                     <option value="dog">Dog(s) Only</option>
                     <option value="cat">Cat(s) Only</option>
@@ -477,19 +538,30 @@ export default function App() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-charcoal">Your Name</label>
+                  <label htmlFor="name" className="block text-sm font-semibold text-charcoal">Your Name</label>
                   <input 
                     type="text" 
                     placeholder="Jane Doe"
+                    required
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 sm:py-4 bg-cream/50 border border-charcoal/10 rounded-2xl min-w-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                   />
                 </div>
 
+                {submitError && (
+                  <div className="bg-red-50 text-red-600 p-4 rounded-2xl border border-red-100 text-sm font-medium">
+                    {submitError}
+                  </div>
+                )}
+
                 <button 
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary-dark text-white py-3 sm:py-4 rounded-2xl font-bold text-lg transition-colors shadow-md hover:shadow-lg mt-4"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-primary-dark text-white py-3 sm:py-4 rounded-2xl font-bold text-lg transition-colors shadow-md hover:shadow-lg mt-4 disabled:opacity-50"
                 >
-                  Request Booking
+                  {isSubmitting ? 'Sending...' : 'Request Booking'}
                 </button>
                 <p className="text-center text-sm text-charcoal/50 mt-4">
                   No commitment required. We'll confirm availability first.
