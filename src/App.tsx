@@ -228,26 +228,26 @@ export default function App() {
                   <div className="flex flex-col border-b border-charcoal/5 pb-2">
                     <div className="flex justify-between items-center">
                       <div className="font-medium">30 min check-in <span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal ml-2">once a day</span></div>
-                      <span className="text-primary font-bold">$20</span>
+                      <span className="text-primary font-bold text-lg">$20</span>
                     </div>
                     <div className="flex justify-between items-center mt-2">
                       <div className="font-medium"><span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal">2-4x a day</span></div>
-                      <span className="text-primary font-bold">$30</span>
+                      <span className="text-primary font-bold text-lg">$30</span>
                     </div>
                   </div>
                   <div className="flex flex-col border-b border-charcoal/5 pb-2">
                     <div className="flex justify-between items-center">
                       <div className="font-medium">60 min check-in <span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal ml-2">once a day</span></div>
-                      <span className="text-primary font-bold">$40</span>
+                      <span className="text-primary font-bold text-lg">$40</span>
                     </div>
                     <div className="flex justify-between items-center mt-2">
                       <div className="font-medium"><span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal">2-4x a day</span></div>
-                      <span className="text-primary font-bold">$50</span>
+                      <span className="text-primary font-bold text-lg">$50</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Overnight stay</span>
-                    <span className="text-primary font-bold text-xl">$70</span>
+                    <span className="text-primary font-bold text-lg">$70</span>
                   </div>
                 </div>
                 <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
@@ -268,15 +268,15 @@ export default function App() {
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between items-center border-b border-white/10 pb-2">
                     <div className="font-medium text-white/90">15 min check-in <span className="text-[10px] text-white/60 uppercase font-sans font-normal ml-2">1-2x a day</span></div>
-                    <span className="text-white font-bold">$15</span>
+                    <span className="text-white font-bold text-lg">$15</span>
                   </div>
                   <div className="flex justify-between items-center border-b border-white/10 pb-2">
                     <div className="font-medium text-white/90">15-30 min check-in <span className="text-[10px] text-white/60 uppercase font-sans font-normal ml-2">multiple visits</span></div>
-                    <span className="text-white font-bold">$30</span>
+                    <span className="text-white font-bold text-lg">$30</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-white/90">Overnight stay</span>
-                    <span className="text-white font-bold text-xl">$50</span>
+                    <span className="text-white font-bold text-lg">$50</span>
                   </div>
                 </div>
                 <a href="#book" className="inline-flex items-center gap-2 text-white font-bold hover:text-white/80 transition-colors mt-auto">
@@ -296,11 +296,11 @@ export default function App() {
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
                     <div className="font-medium">15-30 min check-in <span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal ml-2">1-2x a day</span></div>
-                    <span className="text-primary font-bold">$25</span>
+                    <span className="text-primary font-bold text-lg">$25</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Overnight stay</span>
-                    <span className="text-primary font-bold text-xl">$50</span>
+                    <span className="text-primary font-bold text-lg">$50</span>
                   </div>
                 </div>
                 <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
