@@ -212,10 +212,6 @@ export default function App() {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Services</h2>
               <p className="text-charcoal/70 text-lg mb-4">Tailored care plans to keep your pets happy, healthy, and safe in their own environment.</p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm font-bold text-primary">
-                <span className="bg-primary/10 px-3 py-1 rounded-full">+$5 per additional pet</span>
-                <span className="bg-primary/10 px-3 py-1 rounded-full">+$4 medication fee</span>
-              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -229,27 +225,29 @@ export default function App() {
                   including feeding/water • going outside or walk/play • medications (if needed)
                 </p>
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-start border-b border-charcoal/5 pb-2">
-                    <span className="font-medium pt-0.5">30 min check-in</span>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
-                      <span className="text-primary font-bold text-right">$20</span>
-                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span>
-                      <span className="text-primary font-bold text-right">$30</span>
-                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span>
+                  <div className="flex flex-col border-b border-charcoal/5 pb-2">
+                    <div className="flex justify-between items-center">
+                      <div className="font-medium">30 min check-in <span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal ml-2">once a day</span></div>
+                      <span className="text-primary font-bold text-lg">$20</span>
+                    </div>
+                    <div className="flex justify-between items-center mt-2">
+                      <div className="font-medium"><span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal">2-4x a day</span></div>
+                      <span className="text-primary font-bold text-lg">$30</span>
                     </div>
                   </div>
-                  <div className="flex justify-between items-start border-b border-charcoal/5 pb-2">
-                    <span className="font-medium pt-0.5">60 min check-in</span>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
-                      <span className="text-primary font-bold text-right">$40</span>
-                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">once a day</span>
-                      <span className="text-primary font-bold text-right">$50</span>
-                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">2-4x a day</span>
+                  <div className="flex flex-col border-b border-charcoal/5 pb-2">
+                    <div className="flex justify-between items-center">
+                      <div className="font-medium">60 min check-in <span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal ml-2">once a day</span></div>
+                      <span className="text-primary font-bold text-lg">$40</span>
+                    </div>
+                    <div className="flex justify-between items-center mt-2">
+                      <div className="font-medium"><span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal">2-4x a day</span></div>
+                      <span className="text-primary font-bold text-lg">$50</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Overnight stay</span>
-                    <span className="text-primary font-bold text-xl">$70</span>
+                    <span className="text-primary font-bold text-lg">$70</span>
                   </div>
                 </div>
                 <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
@@ -268,23 +266,17 @@ export default function App() {
                   including feeding/water • medications (if needed)
                 </p>
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-start border-b border-white/10 pb-2">
-                    <span className="font-medium text-white/90 pt-0.5">15 min check-in</span>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
-                      <span className="text-white font-bold text-right">$15</span>
-                      <span className="text-[10px] text-white/60 uppercase font-sans">1-2x a day</span>
-                    </div>
+                  <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                    <div className="font-medium text-white/90">15 min check-in <span className="text-[10px] text-white/60 uppercase font-sans font-normal ml-2">1-2x a day</span></div>
+                    <span className="text-white font-bold text-lg">$15</span>
                   </div>
-                  <div className="flex justify-between items-start border-b border-white/10 pb-2">
-                    <span className="font-medium text-white/90 pt-0.5">15-30 min check-in</span>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
-                      <span className="text-white font-bold text-right">$30</span>
-                      <span className="text-[10px] text-white/60 uppercase font-sans">multiple visits</span>
-                    </div>
+                  <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                    <div className="font-medium text-white/90">15-30 min check-in <span className="text-[10px] text-white/60 uppercase font-sans font-normal ml-2">multiple visits</span></div>
+                    <span className="text-white font-bold text-lg">$30</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-white/90">Overnight stay</span>
-                    <span className="text-white font-bold text-xl">$50</span>
+                    <span className="text-white font-bold text-lg">$50</span>
                   </div>
                 </div>
                 <a href="#book" className="inline-flex items-center gap-2 text-white font-bold hover:text-white/80 transition-colors mt-auto">
@@ -302,21 +294,25 @@ export default function App() {
                   including feeding/water • cage cleaning • medication • or other needs
                 </p>
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-start border-b border-charcoal/5 pb-2">
-                    <span className="font-medium pt-0.5">15-30 min check-in</span>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-2 items-baseline">
-                      <span className="text-primary font-bold text-right">$25</span>
-                      <span className="text-[10px] text-charcoal/50 uppercase font-sans">1-2x a day</span>
-                    </div>
+                  <div className="flex justify-between items-center border-b border-charcoal/5 pb-2">
+                    <div className="font-medium">15-30 min check-in <span className="text-[10px] text-charcoal/50 uppercase font-sans font-normal ml-2">1-2x a day</span></div>
+                    <span className="text-primary font-bold text-lg">$25</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Overnight stay</span>
-                    <span className="text-primary font-bold text-xl">$50</span>
+                    <span className="text-primary font-bold text-lg">$50</span>
                   </div>
                 </div>
                 <a href="#book" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors mt-auto">
                   Book Birds <ChevronRight size={20} />
                 </a>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div className="flex flex-wrap justify-center gap-4 text-sm font-bold text-primary">
+                <span className="bg-primary/10 px-4 py-2 rounded-full">+$5 per additional pet</span>
+                <span className="bg-primary/10 px-4 py-2 rounded-full">+$4 medication fee</span>
               </div>
             </div>
           </div>
